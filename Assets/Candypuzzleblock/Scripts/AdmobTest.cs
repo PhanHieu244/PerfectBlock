@@ -13,15 +13,7 @@ public class AdmobTest : MonoBehaviour
     public void ShowInterstitialAd()
 
     {
-        print("show inter");
-
-        if (Advertisements.Instance.IsInterstitialAvailable())
-
-        {
-            Advertisements.Instance.ShowInterstitial();
-            print("show inter");
-
-        }
+ 
     }
 
  
@@ -34,15 +26,6 @@ public class AdmobTest : MonoBehaviour
         print("show rewarded video");
 
 #endif
-        if (Advertisements.Instance.IsRewardVideoAvailable())
-        {
-            Advertisements.Instance.ShowRewardedVideo(CompleteMethod);
-        }else
-
-        {
-            Advertisements.Instance.ShowInterstitial();
-
-        }
     }
    
 
