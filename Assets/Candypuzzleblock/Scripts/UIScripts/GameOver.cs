@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour {
@@ -28,10 +29,8 @@ public class GameOver : MonoBehaviour {
 
 	public void OnHomeButtonPressed()
 	{
-		if (InputManager.Instance.canInput ()) {
-			AudioManager.Instance.PlayButtonClickSound ();
-			StackManager.Instance.OnCloseButtonPressed ();
-		}
+		AudioManager.Instance.PlayButtonClickSound ();
+		SceneManager.LoadScene("Main Menu");
 	}
 
 	public void OnReplayButtonPressed()
@@ -44,16 +43,13 @@ public class GameOver : MonoBehaviour {
 
     public void OnRewardedVideoButtonPressed()
     {
-        if(InputManager.Instance.canInput())
-        {
-            AudioManager.Instance.PlayButtonClickSound();
-            StackManager.Instance.ContinueGameplay();
-            GamePlay.Instance.InstantRescue();
-        }
-    }
-
-    public void Rate()
-    {
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.alhamad.legopuzzleblocklego");
+	    var price = 20;
+	    if (GameDataManager.Instance.playerData.intDiamond >= price)
+	    {
+		    GameDataManager.Instance.playerData.SubDiamond(price);
+		    AudioManager.Instance.PlayButtonClickSound();
+		    StackManager.Instance.ContinueGameplay();
+		    GamePlay.Instance.InstantRescue();
+	    }
     }
 }

@@ -13,12 +13,12 @@ public class MainMenu : MonoBehaviour {
 	
 	public void Rate()
     {
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.alhamad.legopuzzleblock");
+     
     }
 
 	public void More()
     {
-        Application.OpenURL("https://play.google.com/store/apps/developer?id=ALHAMAD");
+
     }
 	
 
